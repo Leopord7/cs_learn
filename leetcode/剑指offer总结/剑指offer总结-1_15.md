@@ -67,17 +67,15 @@ class Solution {
 
 ```java
  public int[] reversePrint(ListNode head) {
-        ListNode tmp = new ListNode(-1), cur = head;
-        int len = 0, cnt = 0;
-        while (cur != null) {
-            head = head.next;
-            cur.next = tmp.next;
-            tmp.next = cur;
-            cur = head;
-            len++;
+       	ListNode tmp = new ListNode(-1), cur;
+     		while (head != null) {
+          cur = head;
+          head = head.next;
+          cur.next = tmp.next;
+          tmp.next = cur;
         }
-        tmp = tmp.next;
         int[] res = new int[len];
+   			tmp = tmp.next;
         while (tmp != null) {
             res[cnt++] = tmp.val;
             tmp = tmp.next;
